@@ -238,6 +238,7 @@ public class sk2022 extends SvrProcess {
 			attachment.setIsActive(true);
 			attachment.setTitle("intrastat_" + sdf.format(cal.getTime()) + ".xml");
 			attachment.saveEx();
+			attachment.close();
 
 			// readFile(dirName + xmlFilePath);
 
