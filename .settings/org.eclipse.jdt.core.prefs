@@ -1,0 +1,17 @@
+# @file Java compiler: Java level and access-rule checks (use of other bundles' internals) are not set
+# ADR-122 canonical JDT settings. 17 = the bundle's own BREE level
+# (JavaSE-11 → 11 on v10, JavaSE-17 → 17 on v14), filled in by scripts/validate-eclipse-setup.sh.
+# A "# " line directly above a key explains it (shown by the script).
+eclipse.preferences.version=1
+# classes are not compiled for the bundle's Java level (its BREE)
+org.eclipse.jdt.core.compiler.codegen.targetPlatform=17
+# the Java language level does not match the bundle's BREE
+org.eclipse.jdt.core.compiler.compliance=17
+# using another bundle's x-internal package is not reported as an error (ADR-122 BND-04)
+org.eclipse.jdt.core.compiler.problem.discouragedReference=error
+# using another bundle's non-exported package is not reported as an error (ADR-122 BND-04)
+org.eclipse.jdt.core.compiler.problem.forbiddenReference=error
+# the compiler does not check against the API of the bundle's Java level (--release)
+org.eclipse.jdt.core.compiler.release=enabled
+# the source level does not match the bundle's BREE
+org.eclipse.jdt.core.compiler.source=17
