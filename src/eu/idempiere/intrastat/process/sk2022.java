@@ -236,7 +236,8 @@ public class sk2022 extends SvrProcess {
 			attachment.setAD_Table_ID(MIntrastat.Table_ID);
 			attachment.addEntry(new File(dirName + xmlFilePath));
 			attachment.setIsActive(true);
-			attachment.setTitle("intrastat_" + sdf.format(cal.getTime()) + ".xml");
+			// Title is a storage-format flag since IDEMPIERE-6640, not a filename
+			attachment.setTitle(MAttachment.XML);
 			attachment.saveEx();
 			attachment.close();
 
